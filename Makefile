@@ -24,7 +24,7 @@ clean:
 
 fclean:
 	@make -C $(LIBFT_DIR) fclean
-	rm -f ${PROGRAM}
+	rm -rf ${PROGRAM}
 
 re:	fclean all
 
