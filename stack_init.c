@@ -34,7 +34,9 @@ t_stack_node	*stack_init(char **values)
 		if (!valid_type(val))
 			return (stack_clear(stack_a), NULL);
 	}
-	return (valid_dup(stack_a));
+	if (!valid_dup(stack_a))
+		return (stack_clear(stack_a), NULL);
+	return (stack_a);
 }
 
 int	valid_type(t_int num)

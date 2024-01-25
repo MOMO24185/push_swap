@@ -97,6 +97,7 @@ void	sort_big(t_stack_node **stack_a, t_stack_node **stack_b)
 		last_b = stack_last(*stack_b);
 		last_a = stack_last(*stack_a);
 	}
+	return ;
 }
 
 void	check_order(t_stack_node **stack)

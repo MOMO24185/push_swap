@@ -8,29 +8,22 @@ SRCS = push_swap.c\
 		push_swap_utils.c\
 		utilities.c\
 		main.c
-CFLAGS = -Wall -Wextra -Werror
-INCLUDES = ./
-NAME = push_swap.a
+CFLAGS = -Wall -Wextra -Werror -g3 
 PROGRAM = push_swap
+LIBFT_DIR = libft
 CC = cc
-OBJECTS = ${SRCS:.c=.o}
-AR = ar
-ARFLAGS = -rcs
-
-${NAME}: ${SRCS}
-	echo "Compiling LIBFT archive"
-	make -C ./libft fclean all clean
-	mv ./libft/libft.a ${NAME}
-	${CC} ${CFLAGS} ${SRCS} ${NAME} -I ${INCLUDES} -o ${PROGRAM}
 
 all: ${NAME}
 
-clean:
-	echo "rm -f ${OBJECTS} ${NAME}"
-	rm -f ${OBJECTS} ${NAME}
+${NAME}: ${SRCS}
+	@make -C $(LIBFT_DIR)
+	${CC} ${CFLAGS} ${SRCS} -I. -o ${PROGRAM} -L$(LIBFT_DIR) -lft
 
-fclean:	clean
-	echo "rm -f ${PROGRAM}"
+clean:
+	@make -C $(LIBFT_DIR) clean
+
+fclean:
+	@make -C $(LIBFT_DIR) fclean
 	rm -f ${PROGRAM}
 
 re:	fclean all
