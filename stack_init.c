@@ -14,28 +14,32 @@
 
 t_stack_node	*stack_init(char **values)
 {
-	int				i;
+	long long		i;
 	t_stack_node	*stack_a;
+	t_int			val;
 
 	i = 0;
 	if (!values[0][0] || !values)
 		return (NULL);
-	stack_a = stack_new_node(ft_atoi(values[i]), NULL);
-	if (!valid_type((ssize_t) stack_a->value))
+	val = ft_atoi(values[i]);
+	stack_a = stack_new_node(val.value, NULL);
+	if (!valid_type(val))
 		return (stack_clear(stack_a), NULL);
 	while (values[++i] && values[i][0])
 	{
-		stack_append(stack_a, stack_new_node(ft_atoi(values[i]), stack_a));
+		val = ft_atoi(values[i]);
+		stack_append(stack_a, stack_new_node(val.value,
+				stack_a));
 		stack_a = stack_a -> prev;
-		if (!valid_type((ssize_t) stack_a->value))
+		if (!valid_type(val))
 			return (stack_clear(stack_a), NULL);
 	}
 	return (valid_dup(stack_a));
 }
 
-int	valid_type(ssize_t num)
+int	valid_type(t_int num)
 {
-	return (!(num > (ssize_t) INT_MAX || num < (ssize_t) INT_MIN));
+	return (num.validity > 0);
 }
 
 t_stack_node	*valid_dup(t_stack_node *lst)

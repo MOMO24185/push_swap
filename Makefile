@@ -1,4 +1,3 @@
-COMMON = 
 SRCS = push_swap.c\
 		stack_init.c\
 		stack_create_destroy.c\
@@ -9,7 +8,6 @@ SRCS = push_swap.c\
 		push_swap_utils.c\
 		utilities.c\
 		main.c
-BONUS = 
 CFLAGS = -Wall -Wextra -Werror
 INCLUDES = ./
 NAME = push_swap.a

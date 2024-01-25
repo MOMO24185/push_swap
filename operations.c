@@ -24,7 +24,7 @@ void	push(t_stack_node **stack_a, t_stack_node **stack_b, char *str)
 	t_stack_node	*node_a;
 	t_stack_node	*new;
 	t_stack_node	*node_b;
-	
+
 	node_b = stack_last(*stack_b);
 	if (!node_b)
 		return ;
@@ -35,12 +35,8 @@ void	push(t_stack_node **stack_a, t_stack_node **stack_b, char *str)
 	new = node_b;
 	node_b = node_b->prev;
 	if (node_b)
-	{
 		node_b->next = NULL;
-		*stack_b = node_b;
-	}
-	else
-		*stack_b = NULL;
+	*stack_b = node_b;
 	if (node_a)
 	{
 		node_a->next = new;
@@ -49,29 +45,6 @@ void	push(t_stack_node **stack_a, t_stack_node **stack_b, char *str)
 	else
 		*stack_a = new;
 	new->prev = node_a;
-	/* t_stack_node	*new;
-	t_stack_node	*node_b;
-	
-	node_b = stack_last(*stack_b);
-	if (!node_b)
-		return ;
-	ft_putstr_fd("p", 1);
-	ft_putstr_fd(str, 1);
-	ft_putchar_fd('\n', 1);
-	new = stack_new_node(node_b->value, NULL);
-	new->prev = stack_last(*stack_a);
-	if (*stack_a)
-		new->prev->next = new;
-	else
-		*stack_a = new;
-	if (node_b->prev)
-	{
-		node_b->prev->next = NULL;
-		*stack_b = node_b->prev;
-	}
-	else
-		*stack_b = NULL;
-	stack_delone(node_b); */
 }
 
 //sa

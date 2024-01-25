@@ -22,7 +22,6 @@ int	stack_size(t_stack_node *lst)
 	lst = stack_last(lst);
 	while (lst)
 	{
-
 		lst = lst->prev;
 		count++;
 	}

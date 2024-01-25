@@ -6,7 +6,7 @@
 /*   By: melshafi <melshafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 09:04:57 by melshafi          #+#    #+#             */
-/*   Updated: 2023/12/26 15:46:43 by melshafi         ###   ########.fr       */
+/*   Updated: 2024/01/02 09:59:21 by melshafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	sort_medium(t_stack_node **stack_a, t_stack_node **stack_b)
 {
 	t_stack_node	*small;
 	t_stack_node	*last;
-	
+
 	small = find_small_num(stack_a);
 	while (stack_size(*stack_a) > 3)
 	{
@@ -77,7 +77,7 @@ void	sort_big(t_stack_node **stack_a, t_stack_node **stack_b)
 	t_stack_node	*cheap;
 	t_stack_node	*last_b;
 	t_stack_node	*last_a;
-	
+
 	move_nodes(stack_a, stack_b);
 	refresh_stacks(stack_a, stack_b);
 	cheap = get_cheapest(stack_b);
@@ -101,7 +101,7 @@ void	sort_big(t_stack_node **stack_a, t_stack_node **stack_b)
 
 void	check_order(t_stack_node **stack)
 {
-	t_stack_node *small;
+	t_stack_node	*small;
 
 	set_index(stack);
 	small = find_small_num(stack);

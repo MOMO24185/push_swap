@@ -16,7 +16,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
-# include <stdio.h>
 
 /*
 Stack Nodes:
@@ -61,7 +60,7 @@ void			stack_append(t_stack_node *lst, t_stack_node *obj);
 void			stack_add_top(t_stack_node **lst, t_stack_node *obj);
 //Checks stack values being added to ensure they are all digits
 //Also checks stack values being added to ensure they are within INT limits
-int				valid_type(ssize_t num);
+int				valid_type(t_int num);
 //Checks stack values being added to ensure there are no duplicates
 t_stack_node	*valid_dup(t_stack_node *lst);
 
@@ -84,15 +83,16 @@ void			reverse_rotate(t_stack_node **stack, char *str);
 //Double rotate
 void			rr(t_stack_node **stack_a, t_stack_node **stack_b);
 //Double reverse rotate
-void 			rrr(t_stack_node **stack_a, t_stack_node **stack_b);
+void			rrr(t_stack_node **stack_a, t_stack_node **stack_b);
 //Rotates both stacks till cheap node is on top
-void			rotate_till_first(t_stack_node **stack_a, t_stack_node **stack_b, 
-			t_stack_node *cheap);
+void			rotate_till_first(t_stack_node **stack_a,
+					t_stack_node **stack_b, t_stack_node *cheap);
 //Reverse rotates both stacks till cheap node is on top
-void			rev_rotate_till_first(t_stack_node **stack_a, t_stack_node **stack_b, 
-			t_stack_node *cheap);
+void			rev_rotate_till_first(t_stack_node **stack_a,
+					t_stack_node **stack_b, t_stack_node *cheap);
 //Rotates a single stack till target node is at the top of the stack
-void			check_single_rotations(t_stack_node **stack, t_stack_node *target, char *str);
+void			check_single_rotations(t_stack_node **stack,
+					t_stack_node *target, char *str);
 
 /********************************************************
 				Push_swap Sorting functions
@@ -134,7 +134,8 @@ void			set_index(t_stack_node **stack);
 //the stack with the target nodes.
 void			set_cost(t_stack_node *stack_a, t_stack_node *stack_b);
 //Checks for above_below value and rotates according to it
-void			check_above_below(t_stack_node *node, t_stack_node *stack, char *str);
+void			check_above_below(t_stack_node *node, t_stack_node *stack,
+					char *str);
 
 /********************************************************
 			Utilities and other functions

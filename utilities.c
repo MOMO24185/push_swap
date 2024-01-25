@@ -6,7 +6,7 @@
 /*   By: melshafi <melshafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 15:05:46 by melshafi          #+#    #+#             */
-/*   Updated: 2023/12/26 15:41:38 by melshafi         ###   ########.fr       */
+/*   Updated: 2024/01/25 10:52:23 by melshafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,14 @@ int	is_permitted(int c)
 int	check_forbidden(char *str)
 {
 	int	count;
+	int	empty;
 
+	empty = 1;
 	count = 0;
 	while (str[count])
 	{
+		if (ft_isdigit(str[count]))
+			empty = 0;
 		if ((!ft_isdigit(str[count]) && !is_permitted(str[count])
 				&& ft_isascii(str[count])))
 			return (0);
@@ -35,6 +39,8 @@ int	check_forbidden(char *str)
 			return (0);
 		count++;
 	}
+	if (empty)
+		return (0);
 	return (1);
 }
 
@@ -46,9 +52,13 @@ char	**create_values(char **argv)
 	int		count;
 
 	str = ft_strjoin("", argv[1]);
+	if (!check_forbidden(argv[1]))
+		return (free(str), NULL);
 	count = 1;
 	while (argv[++count])
 	{
+		if (!check_forbidden(argv[count]))
+			return (free(str), NULL);
 		tmp = str;
 		str = ft_strjoin(tmp, " ");
 		free(tmp);

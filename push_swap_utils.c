@@ -63,7 +63,7 @@ t_stack_node	*get_next_cheapest(t_stack_node **stack, int current_cheapest)
 
 int	check_sorted(t_stack_node *stack)
 {
-	t_stack_node *last;
+	t_stack_node	*last;
 
 	last = stack_last(stack);
 	while (last)
